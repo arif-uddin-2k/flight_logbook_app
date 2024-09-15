@@ -1,0 +1,37 @@
+name: flight_log_book
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  device_preview: ^1.1.0
+  dropdown_button2: ^2.3.9
+  date_field: ^5.2.1
+  cupertino_icons: ^1.0.6
+  animated_button_bar: ^1.0.0
+  bottom_picker: ^2.8.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+
+#  fonts:
+#  - family: Poppins-Regular
+#    fonts:
+#      - asset: fonts/Poppins-Regular.ttf
+#      - asset: fonts/Poppins-Italic.ttf
