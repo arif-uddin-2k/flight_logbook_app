@@ -4,8 +4,13 @@ import 'package:flutter/material.dart';
 import 'app.dart';
 
 void main() {
-  runApp(DevicePreview(
-    enabled: true,
-    builder: (context) => const App(),
-  ));
+  // runApp(
+  //   const App(),
+  // );
+  runApp(
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const App(),
+    ),
+  );
 }

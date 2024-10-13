@@ -12,8 +12,9 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
-      theme: AppTheme.getLightThemeData()
-,      home: const MainBottomNavScreen(),
+      theme: AppTheme.getLightThemeData(),
+      //darkTheme: AppTheme.getLightThemeData(),
+      home: const MainBottomNavScreen(),
     );
   }
 }

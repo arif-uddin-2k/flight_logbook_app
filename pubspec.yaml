@@ -12,11 +12,13 @@ dependencies:
   flutter:
     sdk: flutter
   device_preview: ^1.1.0
+  flutter_svg: ^1.1.0
   dropdown_button2: ^2.3.9
   date_field: ^5.2.1
   cupertino_icons: ^1.0.6
   animated_button_bar: ^1.0.0
   bottom_picker: ^2.8.0
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:

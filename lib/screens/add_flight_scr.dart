@@ -459,25 +459,7 @@ class _AddFlightScreenState extends State<AddFlightScreen> {
     }
     _totalFlyHour = _arrivalTime.difference(_departureTime);
 
-    FlightLog flightLog = FlightLog(
-      flightDate: _flightDate,
-      logSheetNo: _logSheetNoTEController.text,
-      flightNo: _flightNoTEController.text,
-      flightType: _selectedFlightType.toString(),
-      acReg: _acRegTEController.text,
-      acType: _selectedACType.toString(),
-      captain: _captainTEController.text,
-      cic: _cicTEController.text,
-      from: _fromTEController.text,
-      to: _toTEController.text,
-      departure: _departureTime,
-      arrival: _arrivalTime,
-      dutyOn: _dutyOnTime,
-      dutyOff: _dutyOffTime,
-      totalFlyHour: _totalFlyHour!,
-    );
 
-    flightLogsList.add(flightLog);
     listSort();
 
     ScaffoldMessenger.of(context).showSnackBar(
@@ -499,7 +481,7 @@ class _AddFlightScreenState extends State<AddFlightScreen> {
         decoration: InputDecoration(
           // Add Horizontal padding using menuItemStyleData.padding so it matches
           // the menu padding when button's width is not specified.
-          border: OutlineInputBorder(
+          border: UnderlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           ),
           // Add more decoration..

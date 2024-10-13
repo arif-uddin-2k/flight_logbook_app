@@ -1,5 +1,6 @@
 
 import 'package:animated_button_bar/animated_button_bar.dart';
+import 'package:flight_log_book/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class DashBoardScreen extends StatefulWidget {
@@ -13,6 +14,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //backgroundColor: Theme.of(context).colorScheme.surface,
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(10),
         child: Column(
@@ -20,6 +22,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.95,
               child: Card(
+                color: AppColors.thirdColor,
                 child: Row(
                   children: [
                      SizedBox(
@@ -79,6 +82,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.95,
               child: Card(
+                color: AppColors.thirdColor,
                 child: Column(
                   children: [
                     const SizedBox(height: 10,),
@@ -114,9 +118,10 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                     ListView.builder(
                       shrinkWrap: true,
                       primary: true,
-                      itemCount: 5,
+                      itemCount: 7,
                       itemBuilder: (context, index) {
                         return Card(
+                          color: Colors.white,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
