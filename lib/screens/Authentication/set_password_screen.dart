@@ -25,7 +25,6 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
                   "Set Password",
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
-
               ),
               Divider(
                 color: Theme.of(context)
