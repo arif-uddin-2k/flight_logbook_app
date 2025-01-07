@@ -12,4 +12,5 @@ class AppIcons {
   static const calendarIcon = Icon(Icons.calendar_today_outlined, size: 12, color: AppColors.primaryColor);
   static const takeOffIcon =  Icon(Icons.flight_takeoff_outlined, size: 12, color: AppColors.primaryColor);
   static const takeDownIcon = Icon(Icons.flight_land_outlined, size: 12, color: AppColors.primaryColor);
+  static const filterListIcon = Icon(Icons.filter_list_alt, size: 22, color: AppColors.primaryColor);
 }

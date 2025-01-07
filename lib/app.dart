@@ -1,5 +1,5 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:flight_log_book/screens/main_navbar_screen.dart';
+import 'package:flight_log_book/screens/main_navbar_screen/main_navbar_screen.dart';
 import 'package:flight_log_book/theme/light_theme_data.dart';
 import 'package:flutter/material.dart';
 

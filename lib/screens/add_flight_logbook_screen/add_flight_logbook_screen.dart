@@ -1,10 +1,9 @@
-
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:flight_log_book/screens/add_flight_logbook_screen/widget/drop_down_button_widget.dart';
 import 'package:flight_log_book/utils/app_colors.dart';
 import 'package:flight_log_book/utils/app_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 
 class AddFlightLogbookScreen extends StatefulWidget {
@@ -15,9 +14,14 @@ class AddFlightLogbookScreen extends StatefulWidget {
 }
 
 class _AddFlightLogbookScreenState extends State<AddFlightLogbookScreen> {
-
   final List<String> _dropDownFlightTypes = ['Shuttle', 'Stay'];
-  final List<String> _dropDownACTypes = ['B777', 'B787', 'B787-9', 'B737', 'D8'];
+  final List<String> _dropDownACTypes = [
+    'B777',
+    'B787',
+    'B787-9',
+    'B737',
+    'D8'
+  ];
   final List<String> _dutyOffTypes = ['SL', 'PR'];
 
   DateTime _flightDate = DateTime.now();
@@ -28,7 +32,8 @@ class _AddFlightLogbookScreenState extends State<AddFlightLogbookScreen> {
   Duration? _totalFlyHour;
 
   final TextEditingController _flightDateTEController = TextEditingController();
-  final TextEditingController _dutyOffTypeTEController = TextEditingController();
+  final TextEditingController _dutyOffTypeTEController =
+      TextEditingController();
   final TextEditingController _logBookNoTEController = TextEditingController();
   final TextEditingController _flightNoTEController = TextEditingController();
   final TextEditingController _flightTypeTEController = TextEditingController();
@@ -50,7 +55,7 @@ class _AddFlightLogbookScreenState extends State<AddFlightLogbookScreen> {
   final GlobalKey<FormState> _formKey1 = GlobalKey<FormState>();
 
   bool _addNewFlightInProgress = false;
-  bool?  _isLeave = false;
+  bool? _isLeave = false;
 
   @override
   void initState() {
@@ -107,17 +112,20 @@ class _AddFlightLogbookScreenState extends State<AddFlightLogbookScreen> {
                                 Row(
                                   children: [
                                     SizedBox(
-                                      width: MediaQuery.of(context)
-                                          .size
-                                          .width *
+                                      width: MediaQuery.of(context).size.width *
                                           0.42,
-                                      child:
-                                      TextFormField(
+                                      child: TextFormField(
                                         controller: _flightDateTEController,
                                         readOnly: true,
                                         onTap: () {
-                                          FocusScope.of(context).requestFocus(FocusNode());
-                                          _showCupertinoTimePicker(context, "Select your date", _flightDateTEController, CupertinoDatePickerMode.date, 0);
+                                          FocusScope.of(context)
+                                              .requestFocus(FocusNode());
+                                          _showCupertinoTimePicker(
+                                              context,
+                                              "Select your date",
+                                              _flightDateTEController,
+                                              CupertinoDatePickerMode.date,
+                                              0);
                                         },
                                         decoration: const InputDecoration(
                                           labelText: "Flight Date",
@@ -128,21 +136,21 @@ class _AddFlightLogbookScreenState extends State<AddFlightLogbookScreen> {
                                     ),
                                     const SizedBox(width: 8),
                                     SizedBox(
-                                      width: MediaQuery.of(context)
-                                          .size
-                                          .width *
+                                      width: MediaQuery.of(context).size.width *
                                           0.42,
                                       child: CheckboxListTile(
                                         title: Text(
                                           "Day Off",
-                                          style: Theme.of(context).textTheme.displayMedium,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .displayMedium,
                                         ),
-                                          value: _isLeave,
-                                          onChanged: (value) {
-                                            setState(() {
-                                              _isLeave = value;
-                                            });
-                                          },
+                                        value: _isLeave,
+                                        onChanged: (value) {
+                                          setState(() {
+                                            _isLeave = value;
+                                          });
+                                        },
                                       ),
                                     ),
                                   ],
@@ -151,9 +159,7 @@ class _AddFlightLogbookScreenState extends State<AddFlightLogbookScreen> {
                                 Visibility(
                                   visible: _isLeave!,
                                   child: SizedBox(
-                                    width: MediaQuery.of(context)
-                                        .size
-                                        .width *
+                                    width: MediaQuery.of(context).size.width *
                                         0.42,
                                     child: _dropDownMenu(
                                         "Day Off", _dutyOffTypes, 3),
@@ -161,7 +167,7 @@ class _AddFlightLogbookScreenState extends State<AddFlightLogbookScreen> {
                                 ),
                                 Visibility(
                                   visible: !_isLeave!,
-                                    child: _buildFlightLogbookFullForm(),
+                                  child: _buildFlightLogbookFullForm(),
                                 ),
                                 const SizedBox(height: 40),
                                 Visibility(
@@ -170,29 +176,37 @@ class _AddFlightLogbookScreenState extends State<AddFlightLogbookScreen> {
                                     child: CircularProgressIndicator(),
                                   ),
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       SizedBox(
-                                        width: MediaQuery.of(context).size.width * 0.42,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.42,
                                         child: ElevatedButton(
                                           style: ElevatedButton.styleFrom(
-                                            foregroundColor: Theme.of(context).colorScheme.primary,
-                                            backgroundColor: Theme.of(context).colorScheme.secondary,
+                                            foregroundColor: Theme.of(context)
+                                                .colorScheme
+                                                .primary,
+                                            backgroundColor: Theme.of(context)
+                                                .colorScheme
+                                                .secondary,
                                           ),
                                           onPressed: () {
                                             //Navigator.of(context).pop();
                                           },
-                                          child: const Text(
-                                              "Cancel"
-                                          ),
+                                          child: const Text("Cancel"),
                                         ),
                                       ),
                                       const SizedBox(width: 8),
                                       SizedBox(
-                                        width: MediaQuery.of(context).size.width * 0.42,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.42,
                                         child: ElevatedButton(
                                           onPressed: () {
-                                            if (_formKey1.currentState!.validate()) {}
+                                            if (_formKey1.currentState!
+                                                .validate()) {}
                                           },
                                           child: const Text("Save"),
                                         ),
@@ -216,88 +230,83 @@ class _AddFlightLogbookScreenState extends State<AddFlightLogbookScreen> {
     );
   }
 
-  void _showCupertinoTimePicker(BuildContext context, String title, TextEditingController selectedDateTime, CupertinoDatePickerMode mode, int index) {
-     showModalBottomSheet(
-        context: context,
-        builder: (BuildContext builder) {
-          return SizedBox(
-            height: 350,
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 16, top: 16, right: 16, bottom: 16),
-                  child: Text(
-                      title,
-                    style: Theme.of(context).textTheme.displayLarge,
-                  ),
+  void _showCupertinoTimePicker(
+      BuildContext context,
+      String title,
+      TextEditingController selectedDateTime,
+      CupertinoDatePickerMode mode,
+      int index) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext builder) {
+        return SizedBox(
+          height: 350,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 16, top: 16, right: 16, bottom: 16),
+                child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.displayLarge,
                 ),
-                SizedBox(
-                  height: 240,
-                  child: CupertinoDatePicker(
-                    initialDateTime: DateTime.now(),
-                    minimumDate: DateTime.now().subtract(const Duration(days: 365*10),),
-                    maximumDate: DateTime.now().add(const Duration(days: 365*10),),
-                    mode: mode,
-                    use24hFormat: true,
-                    onDateTimeChanged: (value) {
-                      setState(() {
-                        if (index == 0) {
-                          _flightDate = value;
-                          selectedDateTime.text = DateFormat('dd/MM/yyyy').format(value);
-                        }
-                        else {
-                          if (index == 1) _departureTime = value;
-                          if (index == 2) _arrivalTime = value;
-                          if (index == 3) _dutyOnTime = value;
-                          if (index == 4) _dutyOffTime = value;
-                          selectedDateTime.text = DateFormat('HH:mm').format(value);
-                        }
-                      });
+              ),
+              SizedBox(
+                height: 240,
+                child: CupertinoDatePicker(
+                  initialDateTime: DateTime.now(),
+                  minimumDate: DateTime.now().subtract(
+                    const Duration(days: 365 * 10),
+                  ),
+                  maximumDate: DateTime.now().add(
+                    const Duration(days: 365 * 10),
+                  ),
+                  mode: mode,
+                  use24hFormat: true,
+                  onDateTimeChanged: (value) {
+                    setState(() {
+                      if (index == 0) {
+                        _flightDate = value;
+                        selectedDateTime.text =
+                            DateFormat('dd/MM/yyyy').format(value);
+                      } else {
+                        if (index == 1) _departureTime = value;
+                        if (index == 2) _arrivalTime = value;
+                        if (index == 3) _dutyOnTime = value;
+                        if (index == 4) _dutyOffTime = value;
+                        selectedDateTime.text =
+                            DateFormat('HH:mm').format(value);
+                      }
+                    });
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.42,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
                     },
+                    child: const Text("Done"),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.42,
-                    child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: const Text(
-                          "Done"
-                        ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          );
-        },
-        elevation: 4,
-        backgroundColor: Colors.white,
-     );
+              ),
+            ],
+          ),
+        );
+      },
+      elevation: 4,
+      backgroundColor: Colors.white,
+    );
   }
 
   Widget _dropDownMenu(String? label, List menuItemList, int varToChange) {
     return SizedBox(
       width: MediaQuery.sizeOf(context).width * 0.42,
-      child: DropdownButtonFormField2<String>(
-        isExpanded: true,
+      child: DropdownButtonForm(
         decoration: InputDecoration(
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          floatingLabelStyle: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 0.4,
-            color: AppColors.primaryColor,
-          ),
-          labelStyle: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 0.4,
-            color: AppColors.blackColor,
-          ),
           labelText: label,
         ),
         items: menuItemList
@@ -324,46 +333,40 @@ class _AddFlightLogbookScreenState extends State<AddFlightLogbookScreen> {
         },
         onChanged: (value) {
           setState(() {
-            if (varToChange == 1) _flightTypeTEController.text = value.toString();
+            if (varToChange == 1) {
+              _flightTypeTEController.text = value.toString();
+            }
             if (varToChange == 2) _acTypeTEController.text = value.toString();
-            if (varToChange == 3) _dutyOffTypeTEController.text = value.toString();
+            if (varToChange == 3) {
+              _dutyOffTypeTEController.text = value.toString();
+            }
           });
         },
         onSaved: (value) {
           setState(() {
-            if (varToChange == 1) _flightTypeTEController.text = value.toString();
+            if (varToChange == 1) {
+              _flightTypeTEController.text = value.toString();
+            }
             if (varToChange == 2) _acTypeTEController.text = value.toString();
-            if (varToChange == 3) _dutyOffTypeTEController.text = value.toString();
+            if (varToChange == 3) {
+              _dutyOffTypeTEController.text = value.toString();
+            }
           });
         },
-        buttonStyleData: const ButtonStyleData(
-          elevation: 4,
-          overlayColor: MaterialStatePropertyAll(Colors.transparent),
-        ),
-        iconStyleData: IconStyleData(
-          icon: Icon(
-            Icons.arrow_drop_down,
-            color: Theme.of(context).colorScheme.primary,
-          ),
-          iconSize: 24,
-        ),
         dropdownStyleData: DropdownStyleData(
           elevation: 4,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
           ),
         ),
-        menuItemStyleData: const MenuItemStyleData(
-          padding: EdgeInsets.all(0),
-        ),
       ),
     );
   }
 
-  Widget _buildTextFormField(String? labelText, String? hintText, TextEditingController controller) {
+  Widget _buildTextFormField(
+      String? labelText, String? hintText, TextEditingController controller) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width *
-          0.42,
+      width: MediaQuery.of(context).size.width * 0.42,
       child: TextFormField(
         controller: controller,
         decoration: InputDecoration(
@@ -382,52 +385,41 @@ class _AddFlightLogbookScreenState extends State<AddFlightLogbookScreen> {
         _buildTextFormField("Logbook No.", "BG-787", _logBookNoTEController),
         const SizedBox(height: 20),
         Row(
-          mainAxisAlignment:
-          MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             _buildTextFormField("Flight No.", "BG-787", _flightNoTEController),
             const SizedBox(width: 8),
             SizedBox(
-              width: MediaQuery.of(context)
-                  .size
-                  .width *
-                  0.42,
-              child: _dropDownMenu("Flight Type",
-                  _dropDownFlightTypes, 1),
+              width: MediaQuery.of(context).size.width * 0.42,
+              child: _dropDownMenu("Flight Type", _dropDownFlightTypes, 1),
             ),
           ],
         ),
         const SizedBox(height: 20),
         Row(
-          mainAxisAlignment:
-          MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             _buildTextFormField("A/C Reg. No.", "S2-787", _acRegNoTEController),
             const SizedBox(width: 8),
             SizedBox(
-              width: MediaQuery.of(context)
-                  .size
-                  .width *
-                  0.42,
-              child: _dropDownMenu(
-                  "A/C Type", _dropDownACTypes, 2),
+              width: MediaQuery.of(context).size.width * 0.42,
+              child: _dropDownMenu("A/C Type", _dropDownACTypes, 2),
             ),
           ],
         ),
         const SizedBox(height: 20),
         Row(
-          mainAxisAlignment:
-          MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _buildTextFormField("Captain Name", "Cap. Arif", _captainNameTEController),
+            _buildTextFormField(
+                "Captain Name", "Cap. Arif", _captainNameTEController),
             const SizedBox(width: 8),
             _buildTextFormField("CIC", "CIC", _cicTEController),
           ],
         ),
         const SizedBox(height: 20),
         Row(
-          mainAxisAlignment:
-          MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             _buildTextFormField("From", "DAC", _fromTEController),
             const SizedBox(width: 8),
@@ -436,21 +428,21 @@ class _AddFlightLogbookScreenState extends State<AddFlightLogbookScreen> {
         ),
         const SizedBox(height: 60),
         Row(
-          mainAxisAlignment:
-          MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
-              width: MediaQuery.of(context)
-                  .size
-                  .width *
-                  0.42,
-              child:
-              TextFormField(
+              width: MediaQuery.of(context).size.width * 0.42,
+              child: TextFormField(
                 controller: _departureTimeTEController,
                 readOnly: true,
                 onTap: () {
                   FocusScope.of(context).requestFocus(FocusNode());
-                  _showCupertinoTimePicker(context, "Select your time", _departureTimeTEController, CupertinoDatePickerMode.time, 1);
+                  _showCupertinoTimePicker(
+                      context,
+                      "Select your time",
+                      _departureTimeTEController,
+                      CupertinoDatePickerMode.time,
+                      1);
                 },
                 decoration: const InputDecoration(
                   labelText: "Departure",
@@ -461,16 +453,18 @@ class _AddFlightLogbookScreenState extends State<AddFlightLogbookScreen> {
             ),
             const SizedBox(width: 8),
             SizedBox(
-              width: MediaQuery.of(context)
-                  .size
-                  .width *
-                  0.42,
+              width: MediaQuery.of(context).size.width * 0.42,
               child: TextFormField(
                 controller: _arrivalTimeTEController,
                 readOnly: true,
                 onTap: () {
                   FocusScope.of(context).requestFocus(FocusNode());
-                  _showCupertinoTimePicker(context, "Select your time", _arrivalTimeTEController, CupertinoDatePickerMode.time, 2);
+                  _showCupertinoTimePicker(
+                      context,
+                      "Select your time",
+                      _arrivalTimeTEController,
+                      CupertinoDatePickerMode.time,
+                      2);
                 },
                 decoration: const InputDecoration(
                   labelText: "Arrival",
@@ -483,20 +477,17 @@ class _AddFlightLogbookScreenState extends State<AddFlightLogbookScreen> {
         ),
         const SizedBox(height: 20),
         Row(
-          mainAxisAlignment:
-          MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
-              width: MediaQuery.of(context)
-                  .size
-                  .width *
-                  0.42,
+              width: MediaQuery.of(context).size.width * 0.42,
               child: TextFormField(
                 controller: _dutyOnTimeTEController,
                 readOnly: true,
                 onTap: () {
                   FocusScope.of(context).requestFocus(FocusNode());
-                  _showCupertinoTimePicker(context, "Select your time", _dutyOnTimeTEController, CupertinoDatePickerMode.time, 3);
+                  _showCupertinoTimePicker(context, "Select your time",
+                      _dutyOnTimeTEController, CupertinoDatePickerMode.time, 3);
                 },
                 decoration: const InputDecoration(
                   labelText: "Duty On",
@@ -507,16 +498,18 @@ class _AddFlightLogbookScreenState extends State<AddFlightLogbookScreen> {
             ),
             const SizedBox(width: 8),
             SizedBox(
-              width: MediaQuery.of(context)
-                  .size
-                  .width *
-                  0.42,
+              width: MediaQuery.of(context).size.width * 0.42,
               child: TextFormField(
-                controller: _dutyOffTimeTEController ,
+                controller: _dutyOffTimeTEController,
                 readOnly: true,
                 onTap: () {
                   FocusScope.of(context).requestFocus(FocusNode());
-                  _showCupertinoTimePicker(context, "Select your time", _dutyOffTimeTEController, CupertinoDatePickerMode.time, 4);
+                  _showCupertinoTimePicker(
+                      context,
+                      "Select your time",
+                      _dutyOffTimeTEController,
+                      CupertinoDatePickerMode.time,
+                      4);
                 },
                 decoration: const InputDecoration(
                   labelText: "Duty Off",
