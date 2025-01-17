@@ -1,5 +1,5 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:flight_log_book/screens/main_navbar_screen.dart';
+import 'package:flight_log_book/screens/Authentication/set_new_password.dart';
 import 'package:flight_log_book/theme/light_theme_data.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +14,7 @@ class App extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       theme: AppTheme.getLightThemeData(),
       //darkTheme: AppTheme.getLightThemeData(),
-      home: const MainBottomNavScreen(),
+      home: const SetNewPasswordScreen(),
     );
   }
 }
