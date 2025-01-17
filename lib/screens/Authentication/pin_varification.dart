@@ -18,7 +18,7 @@ class _PinVarificationScreenState extends State<PinVarificationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(64),
+        padding: const EdgeInsets.all(64),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -45,7 +45,7 @@ class _PinVarificationScreenState extends State<PinVarificationScreen> {
               appContext: context,
               length: 4,
               controller: _pinController,
-              onChanged: (value){
+              onChanged: (value) {
                 setState(() {
                   _currentPin = value;
                 });
@@ -61,10 +61,12 @@ class _PinVarificationScreenState extends State<PinVarificationScreen> {
               ),
               keyboardType: TextInputType.number,
             ),
-            const SizedBox(height: 30,),
+            const SizedBox(
+              height: 30,
+            ),
             SizedBox(
-              height: MediaQuery.sizeOf(context).height*.05,
-              width: MediaQuery.sizeOf(context).width*.9,
+              height: MediaQuery.sizeOf(context).height * .05,
+              width: MediaQuery.sizeOf(context).width * .9,
               child: ElevatedButton(
                 onPressed: () {
                   if (_currentPin != null && _currentPin!.length == 4) {
@@ -73,25 +75,40 @@ class _PinVarificationScreenState extends State<PinVarificationScreen> {
                     );
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Please enter a valid 4-digit PIN')),
+                      const SnackBar(
+                          content: Text('Please enter a valid 4-digit PIN')),
                     );
                   }
                 },
-                child: Text('Verify'),
+                child: const Text('Verify'),
               ),
             ),
-            const SizedBox(height: 30,),
+            const SizedBox(
+              height: 30,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Didn't receive email?", style: Theme.of(context).textTheme.displaySmall,),
+                Text(
+                  "Didn't receive email?",
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
                 const SizedBox(width: 4),
-                InkWell(onTap: () {}, child: Text("Tap to resend",style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                  color: AppColors.primaryColor,
-                  fontSize: 12,
-                ),),),
-              ],),
-            const SizedBox(height: 15,),
+                InkWell(
+                  onTap: () {},
+                  child: Text(
+                    "Tap to resend",
+                    style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                          color: AppColors.primaryColor,
+                          fontSize: 12,
+                        ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 15,
+            ),
             Container(
               alignment: Alignment.center,
               width: MediaQuery.of(context).size.width * 0.8,
@@ -101,11 +118,11 @@ class _PinVarificationScreenState extends State<PinVarificationScreen> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.arrow_back,
                         color: Colors.black54,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
                       Text(

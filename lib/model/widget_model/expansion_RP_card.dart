@@ -1,5 +1,6 @@
 
 
+import 'package:flight_log_book/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class ExpansionRPCard {
@@ -14,9 +15,6 @@ class ExpansionRPCard {
   });
 }
 
-final expansionRPCards = <ExpansionRPCard>[
-  ExpansionRPCard(
-    header: const Card(),
-    body: const [],
-  ),
+final expansionRPCards = <ExpansionRPCard> [
+
 ];

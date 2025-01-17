@@ -1,6 +1,5 @@
 import 'package:flight_log_book/model/widget_model/expansion_RP_card.dart';
 import 'package:flight_log_book/utils/app_icons.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ExpansionCardWidget extends StatefulWidget {
@@ -17,8 +16,7 @@ class _ExpansionCardWidgetState extends State<ExpansionCardWidget> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ExpansionPanelList.radio(
-          elevation: 4,
-          //initialOpenPanelValue: expansionRPCards,
+          initialOpenPanelValue: expansionRPCards,
           children: expansionRPCards
               .map(
                 (card) => ExpansionPanelRadio(
@@ -153,51 +151,56 @@ class _ExpansionCardWidgetState extends State<ExpansionCardWidget> {
   }
 
   Widget _expansionCardsBody(BuildContext context, ExpansionRPCard card) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 8),
-        Row(
-          mainAxisAlignment:
-          MainAxisAlignment.spaceBetween,
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Aircraft Reg. - S2787',
-              style: Theme.of(context)
-                  .textTheme
-                  .displaySmall,
+            const SizedBox(height: 8),
+            Row(
+              mainAxisAlignment:
+              MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Aircraft Reg. - S2787',
+                  style: Theme.of(context)
+                      .textTheme
+                      .displaySmall,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Aircraft Type - B787',
+                  style: Theme.of(context)
+                      .textTheme
+                      .displaySmall,
+                ),
+              ],
             ),
             const SizedBox(height: 8),
-            Text(
-              'Aircraft Type - B787',
-              style: Theme.of(context)
-                  .textTheme
-                  .displaySmall,
-            ),
-          ],
-        ),
-        const SizedBox(height: 8),
-        Row(
-          mainAxisAlignment:
-          MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Captain - Capt. Akram',
-              style: Theme.of(context)
-                  .textTheme
-                  .displaySmall,
+            Row(
+              mainAxisAlignment:
+              MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Captain - Capt. Akram',
+                  style: Theme.of(context)
+                      .textTheme
+                      .displaySmall,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'CIC - CIC. Ahsanul',
+                  style: Theme.of(context)
+                      .textTheme
+                      .displaySmall,
+                ),
+              ],
             ),
             const SizedBox(height: 8),
-            Text(
-              'CIC - CIC. Ahsanul',
-              style: Theme.of(context)
-                  .textTheme
-                  .displaySmall,
-            ),
           ],
         ),
-        const SizedBox(height: 8),
-      ],
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:flight_log_book/screens/Authentication/pin_varification.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/app_colors.dart';
@@ -20,7 +21,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: Center(
         child: SizedBox(
           width: MediaQuery.of(context).size.width * 0.8,
-          height:MediaQuery.of(context).size.height * 0.8 ,
+          height: MediaQuery.of(context).size.height * 0.8,
           child: Form(
               child: Column(
             children: [
@@ -32,10 +33,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               Divider(
-                color: Theme.of(context)
-                    .colorScheme
-                    .primary
-                    .withOpacity(0.4),
+                color: Theme.of(context).colorScheme.primary.withOpacity(0.4),
               ),
               const SizedBox(
                 height: 30,
@@ -146,13 +144,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const PinVarificationScreen()));
+                  },
                   child: Text(
                     'Sign Up',
-                    style: Theme.of(context)
-                        .textTheme
-                        .displayMedium!
-                        .copyWith(
+                    style: Theme.of(context).textTheme.displayMedium!.copyWith(
                           color: AppColors.whiteColor,
                         ),
                   ),

@@ -1,3 +1,5 @@
+import 'package:flight_log_book/screens/Authentication/sign_up.dart';
+import 'package:flight_log_book/screens/main_navbar_screen/main_navbar_screen.dart';
 import 'package:flight_log_book/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -16,11 +18,10 @@ class _SignInScreenState extends State<SignInScreen> {
         children: [
           Center(
             child: SizedBox(
-              height:  MediaQuery.of(context).size.height * 0.8,
-              width:  MediaQuery.of(context).size.width * 0.8,
+              height: MediaQuery.of(context).size.height * 0.8,
+              width: MediaQuery.of(context).size.width * 0.8,
               child: Form(
                 child: Column(
-
                   children: [
                     SizedBox(
                       // height: 40,
@@ -48,24 +49,41 @@ class _SignInScreenState extends State<SignInScreen> {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.02,
                     ),
-
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.8,
                       child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const MainBottomNavScreen()));
+                          },
                           child: Text('Sign In',
-                              style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                                color: AppColors.whiteColor,
-                              ))),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displayMedium!
+                                  .copyWith(
+                                    color: AppColors.whiteColor,
+                                  ))),
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.01,
                     ),
                     SizedBox(
-                      child: InkWell(onTap: () {}, child: Text("Forgot Password?",style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                        color: AppColors.primaryColor,
-                        fontSize: 12,
-                      ),),),
+                      child: InkWell(
+                        onTap: () {},
+                        child: Text(
+                          "Forgot Password?",
+                          style: Theme.of(context)
+                              .textTheme
+                              .displayMedium!
+                              .copyWith(
+                                color: AppColors.primaryColor,
+                                fontSize: 12,
+                              ),
+                        ),
+                      ),
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.03,
@@ -77,29 +95,40 @@ class _SignInScreenState extends State<SignInScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        IconButton(onPressed: (){}, icon: const  Icon(Icons.facebook))
+                        IconButton(
+                            onPressed: () {}, icon: const Icon(Icons.facebook))
                       ],
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                      Text("Don't have an account?", style: Theme.of(context).textTheme.displaySmall,),
-                      const SizedBox(width: 4),
-                      InkWell(onTap: () {}, child: Text("Register",style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                        color: AppColors.primaryColor,
-                        fontSize: 12,
-                      ),),),
-                    ],),
-
+                        Text(
+                          "Don't have an account?",
+                          style: Theme.of(context).textTheme.displaySmall,
+                        ),
+                        const SizedBox(width: 4),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUpScreen()));
+                          },
+                          child: Text(
+                            "Register",
+                            style: Theme.of(context)
+                                .textTheme
+                                .displayMedium!
+                                .copyWith(
+                                  color: AppColors.primaryColor,
+                                  fontSize: 12,
+                                ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
             ),
-
           ),
-
-
-
         ],
       ),
     );

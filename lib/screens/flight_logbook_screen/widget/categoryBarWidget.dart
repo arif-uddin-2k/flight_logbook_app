@@ -17,7 +17,7 @@ class _CategoryBarWidgetState extends State<CategoryBarWidget> {
     'In Progress',
     'Complete'
   ];
-  String _selectedCategory = 'All';
+  var _selectedCategory = "All";
 
   @override
   Widget build(BuildContext context) {

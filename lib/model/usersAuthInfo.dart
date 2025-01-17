@@ -1,6 +1,6 @@
 import 'package:flight_log_book/model/userFlightLogs.dart';
 
-class User {
+class _UserAuthInfo {
   late String _userId;
   late String _userEmail;
   late String _userPassword;
@@ -9,7 +9,7 @@ class User {
   List<UsersFlightLog>? _usersFlightLogList;
 
   // Named constructor with required fields
-  User({
+  _UserAuthInfo({
     required String userId,
     required String userEmail,
     required String userPassword,

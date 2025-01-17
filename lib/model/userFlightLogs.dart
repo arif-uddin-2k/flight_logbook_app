@@ -1,5 +1,5 @@
 import 'package:flight_log_book/model/flight_logs.dart';
-import 'package:flight_log_book/model/users.dart';
+import 'package:flight_log_book/model/usersAuthInfo.dart';
 
 class UsersFlightLog extends FlightLog {
   late String _status;
