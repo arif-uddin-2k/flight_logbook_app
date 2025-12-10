@@ -1,9 +1,9 @@
-import 'package:flight_log_book/scr/dashboard_screen/dashboard_screen.dart';
-import 'package:flight_log_book/scr/flight_logbook_screen/flight_logbook_screen.dart';
+import 'package:flight_log_book/screens/flight_logbook_screen/flight_logbook_screen.dart';
 import 'package:flight_log_book/utils/app_colors.dart';
 import 'package:flight_log_book/utils/app_icons.dart';
 import 'package:flutter/material.dart';
 import '../add_flight_logbook_screen/add_flight_logbook_screen.dart';
+import '../dashboard_screen/dashboard_screen.dart';
 
 class MainBottomNavScreen extends StatefulWidget {
   const MainBottomNavScreen({super.key});

@@ -1,5 +1,4 @@
 
-import 'package:flight_log_book/app.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';
@@ -10,13 +9,11 @@ class AppTheme {
       colorScheme: const ColorScheme(
         primary: Colors.redAccent,//Color(0xff023E73),
         secondary: Colors.white,
-        background: Colors.white,//Color(0xffD8EBF2),
         surface: Colors.white,//Color(0xffD8EBF2),
         brightness: Brightness.light,
         error: Colors.redAccent,
         onPrimary: Colors.white,
         onSecondary: Colors.black,
-        onBackground: Colors.black,
         onSurface: Colors.black,
         onError: Colors.black,
         onSecondaryContainer: Colors.black45,
@@ -61,46 +58,46 @@ class AppTheme {
         ),
       ),
 
-      inputDecorationTheme: InputDecorationTheme(
+      inputDecorationTheme: const InputDecorationTheme(
         //filled: true,
         //fillColor: AppColors.thirdColor,
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        floatingLabelStyle: const TextStyle(
+        floatingLabelStyle: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.bold,
           letterSpacing: 0.4,
           color: AppColors.primaryColor,
         ),
-        labelStyle: const TextStyle(
+        labelStyle: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.bold,
           letterSpacing: 0.4,
           color: AppColors.blackColor,
         ),
-        hintStyle: const TextStyle(
+        hintStyle: TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.bold,
           letterSpacing: 0.4,
           color: Colors.black54,
         ),
 
-        contentPadding: const EdgeInsets.symmetric(vertical: 0),
-        focusedBorder: const UnderlineInputBorder(
+        contentPadding: EdgeInsets.symmetric(vertical: 0),
+        focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(
             color: AppColors.primaryColor,
           ),
         ),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
-            color: AppColors.blackColor.withOpacity(0.4),
+            color: AppColors.blackColor,
           ),
         ),
         errorBorder: UnderlineInputBorder(
           borderSide: BorderSide(
-            color: AppColors.errorColor.withOpacity(0.4),
+            color: AppColors.errorColor,
           ),
         ),
-        focusedErrorBorder: const UnderlineInputBorder(
+        focusedErrorBorder: UnderlineInputBorder(
           borderSide: BorderSide(
             color: AppColors.errorColor,
           ),
@@ -126,7 +123,7 @@ class AppTheme {
         type: BottomNavigationBarType.shifting,
       ),
 
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: AppColors.whiteColor,
         elevation: 4,
         shape: RoundedRectangleBorder(
